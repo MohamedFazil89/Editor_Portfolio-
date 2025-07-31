@@ -4,19 +4,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>fun design</title>
+  <title>Fazil's Editor Portfolio</title>
   <link rel="stylesheet" href="./index.css" />
 </head>
 
 <body>
-  <nav class="navbar">
-    <ul>
+ <nav class="navbar">
+  <div class="nav-container">
+    <div class="logo">FRACTIX</div>
+    <button class="menu-toggle" id="menuToggle">&#9776;</button> <!-- Hamburger -->
+    <ul class="nav-links" id="navLinks">
       <li><a href="#edits">My Creative Work</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#about">About Me</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-  </nav>
+  </div>
+</nav>
 
   <div class="backgroundVideo">
     <video src="./assets/hero.hd.1080p.mp4" autoplay muted loop playsinline></video>
@@ -126,6 +130,14 @@
         alert("Failed to send message. Please try again.");
       }
     });
+
+
+     const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
   </script>
 </body>
 
