@@ -31,36 +31,58 @@
         <p class="headline">Elevating Your Content with Cinematic Polish & Precision.</p>
         <br />
         <p class="About">
-            I deliver end-to-end post-production that combines precision editing, cinematic color grading,
-            dynamic visual effects, motion graphics, and rich audio design all in one seamless, high-performance
+            I deliver end-to-end post-production — fast, bold, and cinematic. From precise edits and dynamic motion
+            graphics to rich sound design and color grading, everything is handled in one seamless, high-performance
             workflow.
-            My style is bold, modern, and strategically crafted to elevate your message, whether you're building a
-            brand,
-            growing an audience, or telling a story that matters.
-            <br><br>
-            No wasted time. No compromises. From raw footage to final master, I bring studio-level quality, creative
-            clarity, and speed to every project. When you work with me, you're not just hiring an editor — you're
-            gaining a creative partner who’s all-in on making your content stand out, connect deeply, and leave a
-            lasting impression.
+
+            My style? Clean. Modern. Impactful. Whether you're building a brand, growing an audience, or telling a
+            powerful story — I help your content hit harder and resonate deeper.
+
+            No wasted time. No compromises. Just studio-level quality and a creative partner who’s all-in on making your
+            work unforgettable.
+
+
         </p>
     </section>
 
     <section id="edits" class="edits-section">
         <h2>My Editing Showcase</h2>
-        <div class="edit-grid">
-            <div class="edit-card">
-                <video src="./assets/Fashion/Sthir_Reel_.mp4" controls aria-label="Fashion Reel"></video>
-                <p>Fashion – Sthir</p>
+        <div class="carousel-wrapper">
+            <button class="carousel-btn left" aria-label="Previous Reel">❮</button>
+
+            <div class="carousel-track">
+                <div class="edit-card">
+                    <video src="./assets/Fashion/Sthir_Reel_.mp4" controls></video>
+                    <p>Fashion – Sthir</p>
+                </div>
+                <div class="edit-card">
+                    <video src="./assets/Fashion/BlueDress_Female_No_CC.mp4" controls></video>
+                    <p>Blue Dress</p>
+                </div>
+                <div class="edit-card">
+                    <video src="./assets/Fashion/BlueDress_Female_No_CC.mp4" controls></video>
+                    <p>Blue Dress</p>
+                </div>
+                <div class="edit-card">
+                    <video src="./assets/Fashion/BlueDress_Female_No_CC.mp4" controls></video>
+                    <p>Blue Dress</p>
+                </div>
+                <div class="edit-card">
+                    <video src="./assets/Fashion/BlueDress_Female_No_CC.mp4" controls></video>
+                    <p>Blue Dress</p>
+                </div>
+                <div class="edit-card">
+                    <video src="./assets/Fashion/BlueDress_Female_No_CC.mp4" controls></video>
+                    <p>Blue Dress</p>
+                </div>
+                <div class="edit-card">
+                    <video src="./assets/Fashion/BlueDress_Female_No_CC.mp4" controls></video>
+                    <p>Blue Dress</p>
+                </div>
+                <!-- Add more .edit-card items here -->
             </div>
-            <div class="edit-card">
-                <video src="./assets/Fashion/BlueDress_Female_No_CC.mp4" controls aria-label="Blue Dress Edit"></video>
-                <p>Blue Dress</p>
-            </div>
-            <div class="edit-card">
-                <video src="./assets/Fashion/Sample.mp4" controls aria-label="Fashion Showcase"></video>
-                <p>Fashion Showcase</p>
-            </div>
-            <!-- Add more videos with unique sources and labels -->
+
+            <button class="carousel-btn right" aria-label="Next Reel">❯</button>
         </div>
     </section>
     <section id="services" class="services-section">
@@ -143,6 +165,36 @@
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('show');
         });
+
+        // 
+        const track = document.querySelector('.carousel-track');
+        const cards = document.querySelectorAll('.edit-card');
+        const prevBtn = document.querySelector('.carousel-btn.left');
+        const nextBtn = document.querySelector('.carousel-btn.right');
+
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            const cardWidth = cards[0].offsetWidth;
+            track.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < cards.length - 1) {
+                currentIndex++;
+                updateCarousel();
+            }
+        });
+
+        window.addEventListener('resize', updateCarousel); // Keep centered on resize
+
     </script>
 </body>
 

@@ -269,44 +269,120 @@ body {
 }
 
 .edit-card {
-    position: relative;
-    backdrop-filter: blur(15px);
-    align-items: center;
-    background: rgba(255, 255, 255, 0.07);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
-    padding: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
-        0 0 15px rgba(255, 111, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    max-width: 360px;
-    margin: auto;
-    overflow: hidden;
+  flex: 0 0 100%;
+  max-width: 100%;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.edit-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 12px 48px rgba(255, 111, 0, 0.4),
-        0 0 25px rgba(255, 255, 255, 0.1);
-}
 
 .edit-card video {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    object-fit: cover;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 
 .edit-card p {
-    font-weight: 500;
-    color: #fff;
-    text-align: center;
-    margin: 0;
+  font-size: 1rem;
+  margin-top: 12px;
+  text-align: center;
+  color: #fff;
 }
 
 
+/*  */
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  scroll-behavior: smooth;
+  will-change: transform;
+}
+
+.edit-card {
+  flex: 0 0 100%;
+  max-width: 100%;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  z-index: 5;
+  border-radius: 50%;
+  backdrop-filter: blur(5px);
+  transition: background 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.carousel-btn.left {
+  left: 10px;
+}
+
+.carousel-btn.right {
+  right: 10px;
+}
+
+@media (max-width: 768px) {
+  .carousel-wrapper {
+    height: auto;
+    flex-direction: column;
+    padding-top: 20px;
+  }
+
+  .carousel-btn {
+    font-size: 1.5rem;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .edit-card {
+    padding: 10px;
+  }
+
+  .carousel-btn {
+    font-size: 1.2rem;
+    padding: 6px 10px;
+  }
+}
+
+
+/*  */
 .about-me-section {
     display: flex;
     justify-content: center;
